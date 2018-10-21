@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<p class='text-info'>
+  Edit a product:
+</p>
+<body>
+    <!-- {{ error }} -->
+    <p *ngIf='error.title'> {{error.title.message}} </p>
+    <p *ngIf='error.price'> {{error.price.message}} </p>
+    <!-- <p *ngIf='error.url'> {{error.url.message}} </p> -->
+    <p *ngIf='error.url'> {{error.url.message}} </p>
+
+
+
+    <form (submit)="onSubmitEdit()">
+    <input type = "hidden" value= "editProduct._id">
+      Title: <input type="text" name="editProduct.title" [(ngModel)]="editProduct.title" placeholder= "editProduct.title"/> <br>
+      Price: $ <input type="text" name="editProduct.price" [(ngModel)]="editProduct.price" placeholder= "editProduct.price"/> <br> 
+      Image URL: <input type="url" name="editProduct.url" [(ngModel)]="editProduct.url" placeholder= "editProduct.url"/> <br>
+
+      <input type="submit" value="Edit"/>
+    </form>
+
+<button type='button' [routerLink]="['/']">Cancel </button>
+</body>
+</html>

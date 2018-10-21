@@ -1,0 +1,21 @@
+<h3> List of all products: </h3>
+<div *ngFor="let product of products"><br>
+  <ul>
+    <li>Title: {{product.title}}</li>
+    <li>Price: $ {{product.price}}</li> <br>
+    <li *ngIf="product.url"> Image: <img [src]="product.url"> </li> <br>
+  </ul>
+  <!-- <p *ngIf='error.url'> {{error.url.message}} </p> -->
+
+  <button [routerLink]="['/edit', product._id]"> Edit</button>
+  <!-- <button (click)="showData(task)">Show Details</button> -->
+  <button [routerLink]="['/show', product._id]">Show Details</button>
+
+  <!-- <button (click)="removeTask(task._id)">Delete</button> -->
+
+
+  <button (click)='onDelete(product)'>Delete</button>
+  <!-- use this one -->
+
+  <br>
+</div>

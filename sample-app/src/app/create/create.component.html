@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<a [routerLink]="['/create']"></a>
+<p class='text-info'>
+  Create a new product:
+</p>
+<body>
+  <!-- {{ error }} -->
+    <!-- {{ error | json }} -->
+    <p *ngIf='error.title'> {{error.title.message}} </p>
+    <p *ngIf='error.price'> {{error.price.message }} </p>
+    <p *ngIf='error.url'> {{error.url.message}} </p>
+
+  <form (submit)='onSubmitAdd()'>
+    <div class='form-group'>
+      Title: <input type="text" name="newProduct.title" [(ngModel)]="newProduct.title" /> <br>
+      Price: <input type="number" name="newProduct.price" [(ngModel)]="newProduct.price" /> <br>
+      Image URL: <input type="text" name="newProduct.url" [(ngModel)]="newProduct.url" /> <br>
+
+      <input type="submit" value="Create" />
+    </div>
+  </form>
+  <br><br>
+  <button type='button' [routerLink]="['/']">Cancel </button>
+
+</body>
+</html>
